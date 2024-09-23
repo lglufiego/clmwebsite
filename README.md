@@ -3,6 +3,7 @@
 ## Dependencies
 
 - React
+- Next
 - Material UI
 - Chakra UI
 - Styled Components
