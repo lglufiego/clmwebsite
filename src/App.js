@@ -2,7 +2,7 @@ import './App.css';
 import Home from './pages/Home'
 function App() {
   return (
-    <div className="App">
+    <div style={{ backgroundImage: `url('/images/background-site.jpg')` }} className="App">
       <Home></Home>
     </div>
   );

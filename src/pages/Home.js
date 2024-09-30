@@ -7,15 +7,9 @@ import {
   Text,
   Button,
   Stack,
-  Icon,
-  useColorModeValue,
   createIcon,
   Flex,
-  IconButton,
   VStack,
-  HStack,
-  Wrap,
-  WrapItem,
   FormControl,
   FormLabel,
   Input,
@@ -23,16 +17,17 @@ import {
   InputLeftElement,
   Textarea,
 } from '@chakra-ui/react'
-
 import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
   MdOutlineEmail,
-  MdWhatsapp 
+  MdWhatsapp
 } from 'react-icons/md'
-import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
+import { BsPerson } from 'react-icons/bs'
+
+const emailBox = document.getElementById('emailBox')
+const sendToEmailButton = document.getElementById('sendToEmailButton')
+
+
+sendToEmailButton?.addEventListener('click', emailBox.scrollIntoView({ behavior: "smooth", block: "end" }), false);
 
 
 export default function CallToActionWithAnnotation() {
@@ -48,10 +43,10 @@ export default function CallToActionWithAnnotation() {
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-              CLM Produtos de Limpeza
+            CLM Produtos de Limpeza
           </Heading>
           <Text color={'gray.500'}>
-          Somos uma empresa de limpeza dedicada a cuidar do que você mais valoriza: a sua casa, seu comércio e seu ambiente de trabalho. Atuando há 20 anos na comunidade, nosso objetivo é oferecer produtos da melhor qualidade, com atenção aos detalhes e atendimento ao cliente.
+            Somos uma empresa de limpeza dedicada a cuidar do que você mais valoriza: a sua casa, seu comércio e seu ambiente de trabalho. Atuando há 20 anos na comunidade, nosso objetivo é oferecer produtos da melhor qualidade, com atenção aos detalhes e atendimento ao cliente.
           </Text>
           <Stack
             direction={'column'}
@@ -69,61 +64,62 @@ export default function CallToActionWithAnnotation() {
               }}>
               Entre em contato pelo WhatsApp &nbsp; <MdWhatsapp />
             </Button>
-            <Text>
+            <Button id='sendToEmailButton'>
               Ou envie um e-mail
-            </Text>
+            </Button>
           </Stack>
         </Stack>
-        
-      <Flex justifyContent='center' flexDirection='column'>
-        <Box
-          border='1px' borderColor='gray.200'
-          bg="#FFF"
-          color="white"
-          borderRadius="lg">
-          <Box p={4}>
-            <Box bg="white" borderRadius="lg">
-              <Box m={8} color="#0B0E3F">
-                <VStack spacing={5}>
-                  <FormControl id="name">
-                    <FormLabel>Nome</FormLabel>
-                    <InputGroup borderColor="#E0E1E7">
-                      <InputLeftElement pointerEvents="none">
-                        <BsPerson color="gray.800" />
-                      </InputLeftElement>
-                      <Input type="text" size="md" />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id="email">
-                    <FormLabel>Email</FormLabel>
-                    <InputGroup borderColor="#E0E1E7">
-                      <InputLeftElement pointerEvents="none">
-                        <MdOutlineEmail color="gray.800" />
-                      </InputLeftElement>
-                      <Input type="text" size="md" />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl id="message">
-                    <FormLabel>Mensagem</FormLabel>
-                    <Textarea
-                      borderColor="gray.300"
-                      _hover={{
-                        borderRadius: 'gray.300',
-                      }}
-                      placeholder="message"
-                    />
-                  </FormControl>
-                  <FormControl id="sendMessageButton" float="right">
-                    <Button variant="solid" bg="#48BB78" color="white" _hover={{bg:'#38A169'}}>
-                      Enviar Mensagem
-                    </Button>
-                  </FormControl>
-                </VStack>
+
+        <Flex justifyContent='center' flexDirection='column'>
+          <Box
+            id='emailBox'
+            border='1px' borderColor='gray.200'
+            bg="#FFF"
+            color="white"
+            borderRadius="lg">
+            <Box p={4}>
+              <Box bg="white" borderRadius="lg">
+                <Box m={8} color="#0B0E3F">
+                  <VStack spacing={5}>
+                    <FormControl id="name">
+                      <FormLabel>Nome</FormLabel>
+                      <InputGroup borderColor="#E0E1E7">
+                        <InputLeftElement pointerEvents="none">
+                          <BsPerson color="gray.800" />
+                        </InputLeftElement>
+                        <Input type="text" size="md" />
+                      </InputGroup>
+                    </FormControl>
+                    <FormControl id="email">
+                      <FormLabel>Email</FormLabel>
+                      <InputGroup borderColor="#E0E1E7">
+                        <InputLeftElement pointerEvents="none">
+                          <MdOutlineEmail color="gray.800" />
+                        </InputLeftElement>
+                        <Input type="text" size="md" />
+                      </InputGroup>
+                    </FormControl>
+                    <FormControl id="message">
+                      <FormLabel>Mensagem</FormLabel>
+                      <Textarea
+                        borderColor="gray.300"
+                        _hover={{
+                          borderRadius: 'gray.300',
+                        }}
+                        placeholder="message"
+                      />
+                    </FormControl>
+                    <FormControl id="sendMessageButton" float="right">
+                      <Button variant="solid" bg="#48BB78" color="white" _hover={{ bg: '#38A169' }}>
+                        Enviar Mensagem
+                      </Button>
+                    </FormControl>
+                  </VStack>
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      </Flex>
+        </Flex>
 
       </Container>
     </>
